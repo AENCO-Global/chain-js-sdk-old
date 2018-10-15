@@ -50,7 +50,7 @@ export class NetworkHttp extends Http implements NetworkRepository {
      */
     public getNetworkType(): Observable<NetworkType> {
         return observableFrom(this.networkRoutesApi.getNetworkType()).pipe(map((networkTypeDTO) => {
-            if (networkTypeDTO.name === 'mijinTest') {
+            if (networkTypeDTO.name === 'publicTest') {
                 return NetworkType.PUBLIC_TEST_NET;
             } else {
                 throw new Error('network ' + networkTypeDTO.name + ' is not supported yet by the sdk');
