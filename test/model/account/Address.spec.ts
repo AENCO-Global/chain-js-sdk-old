@@ -38,16 +38,16 @@ describe('Address', () => {
         expect(address.networkType).to.be.equal(NetworkType.MIJIN);
     });
 
-    it('createComplete an address given publicKey + NetworkType.MAIN_NET', () => {
-        const address = Address.createFromPublicKey(publicKey, NetworkType.MAIN_NET);
+    it('createComplete an address given publicKey + NetworkType.PUBLIC_NET', () => {
+        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_NET);
         expect(address.plain()).to.be.equal('NCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPQUJ2ZML');
-        expect(address.networkType).to.be.equal(NetworkType.MAIN_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_NET);
     });
 
-    it('createComplete an address given publicKey + NetworkType.TEST_NET', () => {
-        const address = Address.createFromPublicKey(publicKey, NetworkType.TEST_NET);
+    it('createComplete an address given publicKey + NetworkType.PUBLIC_TEST_NET', () => {
+        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST_NET);
         expect(address.plain()).to.be.equal('TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF');
-        expect(address.networkType).to.be.equal(NetworkType.TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
     });
 
     it('createComplete an address given SCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPRLIKCF2', () => {
@@ -62,12 +62,12 @@ describe('Address', () => {
 
     it('createComplete an address given TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF', () => {
         const address = Address.createFromRawAddress('NCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPQUJ2ZML');
-        expect(address.networkType).to.be.equal(NetworkType.MAIN_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_NET);
     });
 
     it('createComplete an address given TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF', () => {
         const address = Address.createFromRawAddress('TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF');
-        expect(address.networkType).to.be.equal(NetworkType.TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
     });
 
     it('createComplete an address given SDRDGF-TDLLCB-67D4HP-GIMIHP-NSRYRJ-RT7DOB-GWZY', () => {

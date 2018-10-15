@@ -234,12 +234,8 @@ const CreateStandaloneTransactionFromDTO = (transactionDTO, transactionInfo): Tr
 
 const extractNetworkType = (version: number): NetworkType => {
     const networkType = parseInt(version.toString(16).substr(0, 2), 16);
-    if (networkType === NetworkType.MAIN_NET) {
-        return NetworkType.MAIN_NET;
-    } else if (networkType === NetworkType.TEST_NET) {
-        return NetworkType.TEST_NET;
-    } else if (networkType === NetworkType.MIJIN) {
-        return NetworkType.MIJIN;
+    if (networkType === NetworkType.PUBLIC_NET) {
+        return NetworkType.PUBLIC_NET;
     } else if (networkType === NetworkType.PUBLIC_TEST_NET) {
         return NetworkType.PUBLIC_TEST_NET;
     }
