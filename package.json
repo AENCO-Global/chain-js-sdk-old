@@ -1,6 +1,6 @@
 {
   "name": "chain-js-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SDK toolkit for working with AENChain network",
   "scripts": {
     "pretest": "npm run build",
