@@ -42,7 +42,7 @@ describe('MosaicDefinitionTransaction', () => {
                 divisibility: 3,
                 duration: UInt64.fromUint(1000),
             }),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(mosaicDefinitionTransaction.mosaicName).to.be.equal('test-mosaic-name');
@@ -74,7 +74,7 @@ describe('MosaicDefinitionTransaction', () => {
                 divisibility: 3,
                 duration: UInt64.fromUint(1000),
             }),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(mosaicDefinitionTransaction.mosaicName).to.be.equal('test-mosaic-name');

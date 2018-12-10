@@ -98,7 +98,7 @@ describe('TransactionHttp', () => {
                 Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
                 [XEM.createRelative(10)],
                 PlainMessage.create('test-message'),
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             it('standalone', (done) => {
                 const signedTransaction = transferTransaction.signWith(account);
@@ -108,7 +108,7 @@ describe('TransactionHttp', () => {
             it('aggregate', (done) => {
                 const aggregateTransaction = AggregateTransaction.createComplete(Deadline.create(),
                     [transferTransaction.toAggregate(account.publicAccount)],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     [],
                 );
                 const signedTransaction = aggregateTransaction.signWith(account);
@@ -124,7 +124,7 @@ describe('TransactionHttp', () => {
                     Deadline.create(),
                     namespaceName,
                     UInt64.fromUint(1000),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 const signedTransaction = registerNamespaceTransaction.signWith(account);
                 validateTransactionAnnounceCorrectly(account.address, done);
@@ -135,11 +135,11 @@ describe('TransactionHttp', () => {
                     Deadline.create(),
                     'root-test-namespace-' + Math.floor(Math.random() * 10000),
                     UInt64.fromUint(1000),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 const aggregateTransaction = AggregateTransaction.createComplete(Deadline.create(),
                     [registerNamespaceTransaction.toAggregate(account.publicAccount)],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     []);
                 const signedTransaction = aggregateTransaction.signWith(account);
                 validateTransactionAnnounceCorrectly(account.address, done);
@@ -159,7 +159,7 @@ describe('TransactionHttp', () => {
                         divisibility: 3,
                         duration: UInt64.fromUint(1000),
                     }),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 mosaicId = mosaicDefinitionTransaction.mosaicId;
                 const signedTransaction = mosaicDefinitionTransaction.signWith(account);
@@ -178,11 +178,11 @@ describe('TransactionHttp', () => {
                         divisibility: 3,
                         duration: UInt64.fromUint(1000),
                     }),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 const aggregateTransaction = AggregateTransaction.createComplete(Deadline.create(),
                     [mosaicDefinitionTransaction.toAggregate(account.publicAccount)],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     []);
                 const signedTransaction = aggregateTransaction.signWith(account);
                 validateTransactionAnnounceCorrectly(account.address, done);
@@ -196,7 +196,7 @@ describe('TransactionHttp', () => {
                     mosaicId,
                     MosaicSupplyType.Increase,
                     UInt64.fromUint(10),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 const signedTransaction = mosaicSupplyChangeTransaction.signWith(account);
                 validateTransactionAnnounceCorrectly(account.address, done);
@@ -208,11 +208,11 @@ describe('TransactionHttp', () => {
                     mosaicId,
                     MosaicSupplyType.Increase,
                     UInt64.fromUint(10),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 const aggregateTransaction = AggregateTransaction.createComplete(Deadline.create(),
                     [mosaicSupplyChangeTransaction.toAggregate(account.publicAccount)],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     []);
                 const signedTransaction = aggregateTransaction.signWith(account);
                 validateTransactionAnnounceCorrectly(account.address, done);
@@ -228,13 +228,13 @@ describe('TransactionHttp', () => {
                 [new MultisigCosignatoryModification(
                     MultisigCosignatoryModificationType.Add,
                     PublicAccount.createFromPublicKey('B0F93CBEE49EEB9953C6F3985B15A4F238E205584D8F924C621CBE4D7AC6EC24',
-                        NetworkType.PUBLIC_TEST_NET),
+                        NetworkType.PUBLIC_TEST),
                 )],
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             const aggregateTransaction = AggregateTransaction.createBonded(Deadline.create(20, ChronoUnit.MINUTES),
                 [modifyMultisigAccountTransaction.toAggregate(MultisigAccount.publicAccount)],
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 []);
 
             const signedTransaction = CosignatoryAccount.signTransactionWithCosignatories(
@@ -246,7 +246,7 @@ describe('TransactionHttp', () => {
                 XEM.createRelative(10),
                 UInt64.fromUint(10000),
                 signedTransaction,
-                NetworkType.PUBLIC_TEST_NET);
+                NetworkType.PUBLIC_TEST);
 
             setTimeout(() => {
                 transactionHttp.announce(lockFundsTransaction.signWith(CosignatoryAccount));
@@ -266,12 +266,12 @@ describe('TransactionHttp', () => {
                 Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
                 [XEM.createRelative(1)],
                 PlainMessage.create('test-message'),
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             const aggregateTransaction = AggregateTransaction.createBonded(
                 Deadline.create(2, ChronoUnit.MINUTES),
                 [transferTransaction.toAggregate(MultisigAccount.publicAccount)],
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 []);
             const signedTransaction = aggregateTransaction.signWith(
                 CosignatoryAccount,
@@ -281,7 +281,7 @@ describe('TransactionHttp', () => {
                 XEM.createRelative(10),
                 UInt64.fromUint(10000),
                 signedTransaction,
-                NetworkType.PUBLIC_TEST_NET);
+                NetworkType.PUBLIC_TEST);
 
             setTimeout(() => {
                 transactionHttp.announce(lockFundsTransaction.signWith(CosignatoryAccount));
@@ -309,7 +309,7 @@ describe('TransactionHttp', () => {
                 const aggregateTransaction = AggregateTransaction.createBonded(
                     Deadline.create(),
                     [],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     [],
                 );
                 const signedTransaction = account.sign(aggregateTransaction);
@@ -318,7 +318,7 @@ describe('TransactionHttp', () => {
                     XEM.createRelative(10),
                     UInt64.fromUint(10000),
                     signedTransaction,
-                    NetworkType.PUBLIC_TEST_NET);
+                    NetworkType.PUBLIC_TEST);
 
                 validateTransactionAnnounceCorrectly(account.address, done);
                 transactionHttp.announce(lockFundsTransaction.signWith(account));
@@ -327,7 +327,7 @@ describe('TransactionHttp', () => {
                 const aggregateTransaction = AggregateTransaction.createBonded(
                     Deadline.create(),
                     [],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     [],
                 );
                 const signedTransaction = account.sign(aggregateTransaction);
@@ -335,10 +335,10 @@ describe('TransactionHttp', () => {
                     XEM.createRelative(10),
                     UInt64.fromUint(10),
                     signedTransaction,
-                    NetworkType.PUBLIC_TEST_NET);
+                    NetworkType.PUBLIC_TEST);
                 const aggregateLockFundsTransaction = AggregateTransaction.createComplete(Deadline.create(),
                     [lockFundsTransaction.toAggregate(account.publicAccount)],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     []);
                 validateTransactionAnnounceCorrectly(account.address, done);
                 transactionHttp.announce(aggregateLockFundsTransaction.signWith(account));
@@ -354,7 +354,7 @@ describe('TransactionHttp', () => {
                     HashType.SHA3_512,
                     sha3_512.create().update(nacl_catapult.randomBytes(20)).hex(),
                     Address.createFromRawAddress('SDBDG4IT43MPCW2W4CBBCSJJT42AYALQN7A4VVWL'),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 validateTransactionAnnounceCorrectly(account.address, done);
                 transactionHttp.announce(secretLockTransaction.signWith(account));
@@ -368,11 +368,11 @@ describe('TransactionHttp', () => {
                     HashType.SHA3_512,
                     sha3_512.create().update(nacl_catapult.randomBytes(20)).hex(),
                     Address.createFromRawAddress('SDBDG4IT43MPCW2W4CBBCSJJT42AYALQN7A4VVWL'),
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 const aggregateSecretLockTransaction = AggregateTransaction.createComplete(Deadline.create(),
                     [secretLockTransaction.toAggregate(account.publicAccount)],
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                     []);
                 validateTransactionAnnounceCorrectly(account.address, done);
                 transactionHttp.announce(aggregateSecretLockTransaction.signWith(account));
@@ -391,7 +391,7 @@ describe('TransactionHttp', () => {
                     HashType.SHA3_512,
                     secret,
                     account2.address,
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 validateTransactionAnnounceCorrectly(account.address, () => {
                     const secretProofTransaction = SecretProofTransaction.create(
@@ -399,7 +399,7 @@ describe('TransactionHttp', () => {
                         HashType.SHA3_512,
                         secret,
                         proof,
-                        NetworkType.PUBLIC_TEST_NET,
+                        NetworkType.PUBLIC_TEST,
                     );
                     validateTransactionAnnounceCorrectly(account2.address, done);
                     transactionHttp.announce(secretProofTransaction.signWith(account2));
@@ -419,7 +419,7 @@ describe('TransactionHttp', () => {
                     HashType.SHA3_512,
                     secret,
                     account2.address,
-                    NetworkType.PUBLIC_TEST_NET,
+                    NetworkType.PUBLIC_TEST,
                 );
                 validateTransactionAnnounceCorrectly(account.address, () => {
                     const secretProofTransaction = SecretProofTransaction.create(
@@ -427,11 +427,11 @@ describe('TransactionHttp', () => {
                         HashType.SHA3_512,
                         secret,
                         proof,
-                        NetworkType.PUBLIC_TEST_NET,
+                        NetworkType.PUBLIC_TEST,
                     );
                     const aggregateSecretProofTransaction = AggregateTransaction.createComplete(Deadline.create(),
                         [secretProofTransaction.toAggregate(account2.publicAccount)],
-                        NetworkType.PUBLIC_TEST_NET,
+                        NetworkType.PUBLIC_TEST,
                         []);
                     validateTransactionAnnounceCorrectly(account2.address, done);
                     transactionHttp.announce(aggregateSecretProofTransaction.signWith(account2));
@@ -508,7 +508,7 @@ describe('TransactionHttp', () => {
 
     describe('announce', () => {
         it('should return success when announce', (done) => {
-            const payload = new SignedTransaction('', '', '', TransactionType.TRANSFER, NetworkType.PUBLIC_TEST_NET);
+            const payload = new SignedTransaction('', '', '', TransactionType.TRANSFER, NetworkType.PUBLIC_TEST);
             transactionHttp.announce(payload)
                 .subscribe((transactionAnnounceResponse) => {
                     expect(transactionAnnounceResponse.message)
@@ -520,7 +520,7 @@ describe('TransactionHttp', () => {
 
     describe('announceAggregateBonded', () => {
         it('should return success when announceAggregateBonded', (done) => {
-            const payload = new SignedTransaction('', '', '', TransactionType.TRANSFER, NetworkType.PUBLIC_TEST_NET);
+            const payload = new SignedTransaction('', '', '', TransactionType.TRANSFER, NetworkType.PUBLIC_TEST);
             transactionHttp.announceAggregateBonded(payload)
                 .subscribe((transactionAnnounceResponse) => {
                     expect(transactionAnnounceResponse.message)
@@ -545,21 +545,21 @@ describe('TransactionHttp', () => {
     describe('aggregate complete tx', () => {
         it('should work', () => {
             const signerAccount = Account.createFromPrivateKey(
-                '5098D500390934F81EA416D9A2F50F276DE446E28488E1801212931E3470DA31', NetworkType.PUBLIC_TEST_NET);
+                '5098D500390934F81EA416D9A2F50F276DE446E28488E1801212931E3470DA31', NetworkType.PUBLIC_TEST);
 
             const tx = TransferTransaction.create(
                 Deadline.create(),
                 Address.createFromRawAddress('SAGY2PTFX4T2XYKYXTJXYCTQRP3FESQH5MEQI2RQ'),
                 [],
                 PlainMessage.create('Hi'),
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             const aggTx = AggregateTransaction.createComplete(
                 Deadline.create(),
                 [
                     tx.toAggregate(signerAccount.publicAccount),
                 ],
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 [],
             );
             const signedTx = signerAccount.sign(aggTx);
@@ -574,14 +574,14 @@ describe('TransactionHttp', () => {
     describe('announceSync', () => {
         it('should return insufficient balance error', (done) => {
             const signerAccount = Account.createFromPrivateKey(
-                '5098D500390934F81EA416D9A2F50F276DE446E28488E1801212931E3470DA31', NetworkType.PUBLIC_TEST_NET);
+                '5098D500390934F81EA416D9A2F50F276DE446E28488E1801212931E3470DA31', NetworkType.PUBLIC_TEST);
 
             const tx = TransferTransaction.create(
                 Deadline.create(),
                 Address.createFromRawAddress('SAGY2PTFX4T2XYKYXTJXYCTQRP3FESQH5MEQI2RQ'),
                 [XEM.createRelative(10)],
                 EmptyMessage,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             const signedTx = signerAccount.sign(tx);
             const trnsHttp = new TransactionHttp(APIUrl);

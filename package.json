@@ -46,6 +46,7 @@
     "typescript-require": "^0.2.9-1"
   },
   "dependencies": {
+    "catapult-sdk": "^0.7.8",
     "js-joda": "^1.6.2",
     "nem2-library": "^0.9.5",
     "request": "^2.83.0",

@@ -36,7 +36,7 @@ export class TransactionUtils {
             recipient,
             [],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         const signedTransaction = account.sign(transferTransaction);
         transactionHttp.announce(signedTransaction);
@@ -49,7 +49,7 @@ export class TransactionUtils {
             Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
             [XEM.createRelative(100000000000)],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         const signedTransaction = account.sign(transferTransaction);
         transactionHttp.announce(signedTransaction);
@@ -61,13 +61,13 @@ export class TransactionUtils {
             Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
             [XEM.createRelative(100000000000)],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         const aggregateTransaction = AggregateTransaction.createBonded(
             Deadline.create(2, ChronoUnit.MINUTES),
             [transferTransaction.toAggregate(MultisigAccount.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 

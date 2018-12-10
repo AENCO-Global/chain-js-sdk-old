@@ -27,9 +27,9 @@ describe('AccountHttp', () => {
     const accountAddress = Address.createFromRawAddress('SDRDGFTDLLCB67D4HPGIMIHPNSRYRJRT7DOBGWZY');
     const accountPublicKey = '1026D70E1954775749C6811084D6450A3184D977383F0E4282CD47118AF37755';
     const publicAccount = PublicAccount.createFromPublicKey('846B4439154579A5903B1459C9CF69CB8153F6D0110A7A0ED61DE29AE4810BF2',
-        NetworkType.PUBLIC_TEST_NET);
+        NetworkType.PUBLIC_TEST);
     const multisigPublicAccount = PublicAccount.createFromPublicKey('B694186EE4AB0558CA4AFCFDD43B42114AE71094F5A1FC4A913FE9971CACD21D',
-        NetworkType.PUBLIC_TEST_NET);
+        NetworkType.PUBLIC_TEST);
 
     const accountHttp = new AccountHttp(APIUrl);
 

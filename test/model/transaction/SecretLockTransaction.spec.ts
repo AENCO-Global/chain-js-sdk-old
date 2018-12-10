@@ -37,7 +37,7 @@ describe('SecretLockTransaction', () => {
             HashType.SHA3_512,
             sha3_512.create().update(convert.hexToUint8(proof)).hex(),
             recipient,
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         expect(secretLockTransaction.mosaic.id).to.be.equal(XEM.MOSAIC_ID);
         expect(secretLockTransaction.mosaic.amount.equals(UInt64.fromUint(10))).to.be.equal(true);
@@ -58,7 +58,7 @@ describe('SecretLockTransaction', () => {
                 HashType.SHA3_512,
                 'non valid hash',
                 recipient,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
         }).to.throw(Error);
     });

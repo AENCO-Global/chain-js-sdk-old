@@ -29,7 +29,7 @@ describe('Transaction', () => {
     describe('isUnannounced', () => {
         it('should return true when there is no Transaction Info', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -44,7 +44,7 @@ describe('Transaction', () => {
     describe('isUnconfirmed', () => {
         it('should return true when height is 0', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -57,7 +57,7 @@ describe('Transaction', () => {
 
         it('should return false when height is not 0', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -72,7 +72,7 @@ describe('Transaction', () => {
     describe('isConfirmed', () => {
         it('should return true when height is not 0', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -87,7 +87,7 @@ describe('Transaction', () => {
     describe('hasMissingSignatures', () => {
         it('should return false when height is 0 and hash and markehash are different', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -102,7 +102,7 @@ describe('Transaction', () => {
     describe('replyGiven', () => {
         it('should throw an error if the transaction is announced', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -116,7 +116,7 @@ describe('Transaction', () => {
         });
         it('should return a new transaction', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),
@@ -129,7 +129,7 @@ describe('Transaction', () => {
         });
         it('should overide deadline properly', () => {
             const transaction = new FakeTransaction(TransactionType.TRANSFER,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
                 1,
                 Deadline.create(),
                 UInt64.fromUint(0),

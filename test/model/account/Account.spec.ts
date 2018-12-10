@@ -27,7 +27,7 @@ describe('Account', () => {
     };
 
     it('should be created via private key', () => {
-        const account = Account.createFromPrivateKey(accountInformation.privateKey, NetworkType.PUBLIC_TEST_NET);
+        const account = Account.createFromPrivateKey(accountInformation.privateKey, NetworkType.PUBLIC_TEST);
         expect(account.publicKey).to.be.equal(accountInformation.publicKey);
         expect(account.privateKey).to.be.equal(accountInformation.privateKey);
         expect(account.address.plain()).to.be.equal(accountInformation.address);
@@ -35,12 +35,12 @@ describe('Account', () => {
 
     it('should throw exception when the private key is not valid', () => {
         expect(() => {
-            Account.createFromPrivateKey('', NetworkType.PUBLIC_TEST_NET);
+            Account.createFromPrivateKey('', NetworkType.PUBLIC_TEST);
         }).to.throw();
     });
 
     it('should generate a new account', () => {
-        const account = Account.generateNewAccount(NetworkType.PUBLIC_TEST_NET);
+        const account = Account.generateNewAccount(NetworkType.PUBLIC_TEST);
         expect(account.publicKey).to.not.be.equal(undefined);
         expect(account.privateKey).to.not.be.equal(undefined);
         expect(account.address).to.not.be.equal(undefined);
@@ -50,7 +50,7 @@ describe('Account', () => {
         it('utf-8', () => {
             const account = Account.createFromPrivateKey(
                 'AB860ED1FE7C91C02F79C02225DAC708D7BD13369877C1F59E678CC587658C47',
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             const publicAccount = account.publicAccount;
             const signed = account.signData('catapult rocks!');
@@ -61,7 +61,7 @@ describe('Account', () => {
         it('hexa', () => {
             const account = Account.createFromPrivateKey(
                 'AB860ED1FE7C91C02F79C02225DAC708D7BD13369877C1F59E678CC587658C47',
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
             const publicAccount = account.publicAccount;
             const signed = account.signData('0xAA');

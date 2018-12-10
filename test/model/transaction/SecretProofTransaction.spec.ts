@@ -31,7 +31,7 @@ describe('SecretProofTransaction', () => {
             HashType.SHA3_512,
             sha3_512.create().update(convert.hexToUint8(proof)).hex(),
             proof,
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         expect(secretProofTransaction.hashType).to.be.equal(0);
         expect(secretProofTransaction.secret).to.be.equal('d23859866f93f2698a5b48586543c608d85a57c74e9ce92d86a0b25065d8' +
@@ -48,7 +48,7 @@ describe('SecretProofTransaction', () => {
                 HashType.SHA3_512,
                 'non valid hash',
                 proof,
-                NetworkType.PUBLIC_TEST_NET,
+                NetworkType.PUBLIC_TEST,
             );
         }).to.throw(Error);
     });

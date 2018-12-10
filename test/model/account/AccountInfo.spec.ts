@@ -61,7 +61,7 @@ describe('AccountInfo', () => {
         deepEqual(accountInfo.publicKeyHeight, accountInfoDTO.account.publicKeyHeight);
         deepEqual(accountInfo.importance, accountInfoDTO.account.importance);
         deepEqual(accountInfo.importanceHeight, accountInfoDTO.account.importanceHeight);
-        deepEqual(accountInfo.publicAccount, PublicAccount.createFromPublicKey(accountInfoDTO.account.publicKey, NetworkType.PUBLIC_TEST_NET));
+        deepEqual(accountInfo.publicAccount, PublicAccount.createFromPublicKey(accountInfoDTO.account.publicKey, NetworkType.PUBLIC_TEST));
 
     });
 });

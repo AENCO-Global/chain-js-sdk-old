@@ -38,7 +38,7 @@ describe('MosaicSupplyChangeTransaction', () => {
             mosaicId,
             MosaicSupplyType.Increase,
             UInt64.fromUint(10),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(mosaicSupplyChangeTransaction.direction).to.be.equal(MosaicSupplyType.Increase);

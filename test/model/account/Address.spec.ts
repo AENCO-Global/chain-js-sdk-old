@@ -21,14 +21,14 @@ import {NetworkType} from '../../../src/model/blockchain/NetworkType';
 describe('Address', () => {
     const publicKey = 'c2f93346e27ce6ad1a9f8f5e3066f8326593a406bdf357acb041e2f9ab402efe'.toUpperCase();
 
-    it('createComplete an address given publicKey + NetworkType.PUBLIC_TEST_NET', () => {
-        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST_NET);
+    it('createComplete an address given publicKey + NetworkType.PUBLIC_TEST', () => {
+        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST);
         expect(address.plain()).to.be.equal('SCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPRLIKCF2');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST);
     });
 
     it('print the address in pretty format', () => {
-        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST_NET);
+        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST);
         expect(address.pretty()).to.be.equal('SCTVW2-3D2MN5-VE4AQ4-TZIDZE-NGNOZX-PRPRLI-KCF2');
     });
 
@@ -38,21 +38,21 @@ describe('Address', () => {
         expect(address.networkType).to.be.equal(NetworkType.MIJIN);
     });
 
-    it('createComplete an address given publicKey + NetworkType.PUBLIC_NET', () => {
-        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_NET);
+    it('createComplete an address given publicKey + NetworkType.PUBLIC', () => {
+        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC);
         expect(address.plain()).to.be.equal('NCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPQUJ2ZML');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC);
     });
 
-    it('createComplete an address given publicKey + NetworkType.PUBLIC_TEST_NET', () => {
-        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST_NET);
+    it('createComplete an address given publicKey + NetworkType.PUBLIC_TEST', () => {
+        const address = Address.createFromPublicKey(publicKey, NetworkType.PUBLIC_TEST);
         expect(address.plain()).to.be.equal('TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST);
     });
 
     it('createComplete an address given SCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPRLIKCF2', () => {
         const address = Address.createFromRawAddress('SCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPRLIKCF2');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST);
     });
 
     it('createComplete an address given MCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPR72DYSX', () => {
@@ -62,17 +62,17 @@ describe('Address', () => {
 
     it('createComplete an address given TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF', () => {
         const address = Address.createFromRawAddress('NCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPQUJ2ZML');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC);
     });
 
     it('createComplete an address given TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF', () => {
         const address = Address.createFromRawAddress('TCTVW23D2MN5VE4AQ4TZIDZENGNOZXPRPSDRSFRF');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST);
     });
 
     it('createComplete an address given SDRDGF-TDLLCB-67D4HP-GIMIHP-NSRYRJ-RT7DOB-GWZY', () => {
         const address = Address.createFromRawAddress('SDRDGF-TDLLCB-67D4HP-GIMIHP-NSRYRJ-RT7DOB-GWZY');
-        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
+        expect(address.networkType).to.be.equal(NetworkType.PUBLIC_TEST);
         expect(address.pretty()).to.be.equal('SDRDGF-TDLLCB-67D4HP-GIMIHP-NSRYRJ-RT7DOB-GWZY');
     });
 

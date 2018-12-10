@@ -32,14 +32,14 @@ describe('TransactionHttp', () => {
             Address.createFromRawAddress('SAGY2PTFX4T2XYKYXTJXYCTQRP3FESQH5MEQI2RQ'),
             [],
             PlainMessage.create('Hi'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         const aggTx = AggregateTransaction.createComplete(
             Deadline.create(),
             [
                 tx.toAggregate(account.publicAccount),
             ],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 

@@ -50,13 +50,13 @@ describe('AggregateTransaction', () => {
             Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
             [],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [transferTransaction.toAggregate(account.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             []);
 
         const signedTransaction = aggregateTransaction.signWith(account);
@@ -74,13 +74,13 @@ describe('AggregateTransaction', () => {
             Deadline.create(),
             'root-test-namespace',
             UInt64.fromUint(1000),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [registerNamespaceTransaction.toAggregate(account.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 
@@ -107,13 +107,13 @@ describe('AggregateTransaction', () => {
                 divisibility: 3,
                 duration: UInt64.fromUint(1000),
             }),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [mosaicDefinitionTransaction.toAggregate(account.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 
@@ -134,13 +134,13 @@ describe('AggregateTransaction', () => {
             mosaicId,
             MosaicSupplyType.Increase,
             UInt64.fromUint(10),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [mosaicSupplyChangeTransaction.toAggregate(account.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 
@@ -162,19 +162,19 @@ describe('AggregateTransaction', () => {
             [new MultisigCosignatoryModification(
                 MultisigCosignatoryModificationType.Add,
                 PublicAccount.createFromPublicKey('B0F93CBEE49EEB9953C6F3985B15A4F238E205584D8F924C621CBE4D7AC6EC24',
-                    NetworkType.PUBLIC_TEST_NET),
+                    NetworkType.PUBLIC_TEST),
             ),
                 new MultisigCosignatoryModification(
                     MultisigCosignatoryModificationType.Add,
                     PublicAccount.createFromPublicKey('B1B5581FC81A6970DEE418D2C2978F2724228B7B36C5C6DF71B0162BB04778B4',
-                        NetworkType.PUBLIC_TEST_NET),
+                        NetworkType.PUBLIC_TEST),
                 )],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [modifyMultisigAccountTransaction.toAggregate(account.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 
@@ -195,11 +195,11 @@ describe('AggregateTransaction', () => {
             Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
             [],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
         const aggregateTransaction = AggregateTransaction.createComplete(Deadline.create(),
             [transferTransaction.toAggregate(MultisigAccount.publicAccount)],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
         const signedTransaction = CosignatoryAccount.signTransactionWithCosignatories(
@@ -285,20 +285,20 @@ describe('AggregateTransaction', () => {
             aggregateTransactionDTO) as AggregateTransaction;
         expect(aggregateTransaction.signedByAccount(
             PublicAccount.createFromPublicKey('A5F82EC8EBB341427B6785C8111906CD0DF18838FB11B51CE0E18B5E79DFF630',
-                NetworkType.PUBLIC_TEST_NET))).to.be.equal(true);
+                NetworkType.PUBLIC_TEST))).to.be.equal(true);
         expect(aggregateTransaction.signedByAccount(
             PublicAccount.createFromPublicKey('7681ED5023141D9CDCF184E5A7B60B7D466739918ED5DA30F7E71EA7B86EFF2D',
-                NetworkType.PUBLIC_TEST_NET))).to.be.equal(true);
+                NetworkType.PUBLIC_TEST))).to.be.equal(true);
         expect(aggregateTransaction.signedByAccount(
             PublicAccount.createFromPublicKey('B4F12E7C9F6946091E2CB8B6D3A12B50D17CCBBF646386EA27CE2946A7423DCF',
-                NetworkType.PUBLIC_TEST_NET))).to.be.equal(false);
+                NetworkType.PUBLIC_TEST))).to.be.equal(false);
     });
 
     it('should have type 0x4141 when it\'s complete', () => {
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
 
@@ -309,7 +309,7 @@ describe('AggregateTransaction', () => {
         const aggregateTransaction = AggregateTransaction.createBonded(
             Deadline.create(),
             [],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(aggregateTransaction.type).to.be.equal(0x4241);

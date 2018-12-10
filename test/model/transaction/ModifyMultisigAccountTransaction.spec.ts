@@ -39,14 +39,14 @@ describe('ModifyMultisigAccountTransaction', () => {
             [new MultisigCosignatoryModification(
                 MultisigCosignatoryModificationType.Add,
                 PublicAccount.createFromPublicKey('B0F93CBEE49EEB9953C6F3985B15A4F238E205584D8F924C621CBE4D7AC6EC24',
-                    NetworkType.PUBLIC_TEST_NET),
+                    NetworkType.PUBLIC_TEST),
             ),
                 new MultisigCosignatoryModification(
                     MultisigCosignatoryModificationType.Add,
                     PublicAccount.createFromPublicKey('B1B5581FC81A6970DEE418D2C2978F2724228B7B36C5C6DF71B0162BB04778B4',
-                        NetworkType.PUBLIC_TEST_NET),
+                        NetworkType.PUBLIC_TEST),
                 )],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(modifyMultisigAccountTransaction.minApprovalDelta)

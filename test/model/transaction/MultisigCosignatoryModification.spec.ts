@@ -25,7 +25,7 @@ describe('MultisigCosignatoryModification', () => {
     it('should create Add MultisigCosignatoryModification', () => {
         const multisigCosignatoryModification = new MultisigCosignatoryModification(
             MultisigCosignatoryModificationType.Add,
-            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST),
         );
         expect(multisigCosignatoryModification.cosignatoryPublicAccount.publicKey)
             .to.be.equal('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB');
@@ -35,7 +35,7 @@ describe('MultisigCosignatoryModification', () => {
     it('should create Add MultisigCosignatoryModification and get toDTO correctly', () => {
         const multisigCosignatoryModification = new MultisigCosignatoryModification(
             MultisigCosignatoryModificationType.Add,
-            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST),
         ).toDTO();
         expect(multisigCosignatoryModification.cosignatoryPublicKey)
             .to.be.equal('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB');
@@ -46,7 +46,7 @@ describe('MultisigCosignatoryModification', () => {
     it('should create Remove MultisigCosignatoryModification', () => {
         const multisigCosignatoryModification = new MultisigCosignatoryModification(
             MultisigCosignatoryModificationType.Remove,
-            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST),
         );
         expect(multisigCosignatoryModification.cosignatoryPublicAccount.publicKey)
             .to.be.equal('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB');
@@ -56,7 +56,7 @@ describe('MultisigCosignatoryModification', () => {
     it('should create Remove MultisigCosignatoryModification and get toDTO correctly', () => {
         const multisigCosignatoryModification = new MultisigCosignatoryModification(
             MultisigCosignatoryModificationType.Remove,
-            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB', NetworkType.PUBLIC_TEST),
         ).toDTO();
         expect(multisigCosignatoryModification.cosignatoryPublicKey)
             .to.be.equal('C52C211CF935C61D65F26B253AA260416F018C3D21E4D184A7671F403C849BBB');

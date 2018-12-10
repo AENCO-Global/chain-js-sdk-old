@@ -34,7 +34,7 @@ describe('RegisterNamespaceTransaction', () => {
             Deadline.create(),
             'root-test-namespace',
             UInt64.fromUint(1000),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(registerNamespaceTransaction.duration!.lower).to.be.equal(1000);
@@ -54,7 +54,7 @@ describe('RegisterNamespaceTransaction', () => {
             Deadline.create(),
             'root-test-namespace',
             'parent-test-namespace',
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         const signedTransaction = registerNamespaceTransaction.signWith(account);

@@ -31,7 +31,7 @@ describe('MosaicView', () => {
     before(() => {
         mosaicInfo = new MosaicInfo(true, 0, '59FDA0733F17CF0001772CBC', new NamespaceId([929036875, 2226345261]),
             new MosaicId([3646934825, 3576016193]), new UInt64([3403414400, 2095475]), new UInt64([1, 0]),
-            PublicAccount.createFromPublicKey('B4F12E7C9F6946091E2CB8B6D3A12B50D17CCBBF646386EA27CE2946A7423DCF', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('B4F12E7C9F6946091E2CB8B6D3A12B50D17CCBBF646386EA27CE2946A7423DCF', NetworkType.PUBLIC_TEST),
             MosaicProperties.create({
                 supplyMutable: true,
                 transferable: true,

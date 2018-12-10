@@ -1,3 +1,8 @@
+# IMPORTANT NOTE
+
+*OBSOLETE* - The structure of how the external components of how catapult exposes itself has recently been upgraded and many of the features of this package are now redundant. This package has been superceded.
+For the moment, please visit: https://github.com/AENCO-Global/Chain-js-sdk-new This project will be deleted shortly
+
 # nem2-sdk for TypeScript and JavaScript
 
 [![npm version](https://badge.fury.io/js/nem2-sdk.svg)](https://badge.fury.io/js/nem2-sdk)

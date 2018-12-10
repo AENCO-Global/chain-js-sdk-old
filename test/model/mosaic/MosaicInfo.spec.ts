@@ -37,7 +37,7 @@ describe('MosaicInfo', () => {
             mosaicId: new MosaicId([3646934825, 3576016193]),
             namespaceId: new NamespaceId([929036875, 2226345261]),
             owner: PublicAccount.createFromPublicKey('B4F12E7C9F6946091E2CB8B6D3A12B50D17CCBBF646386EA27CE2946A7423DCF',
-                NetworkType.PUBLIC_TEST_NET),
+                NetworkType.PUBLIC_TEST),
             properties: [
                 new UInt64([
                     6,

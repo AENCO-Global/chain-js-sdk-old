@@ -25,7 +25,7 @@ describe('NetworkHttp', () => {
         it('should return network type', (done) => {
             networkHttp.getNetworkType()
                 .subscribe((networkType) => {
-                    expect(networkType).to.be.equal(NetworkType.PUBLIC_TEST_NET);
+                    expect(networkType).to.be.equal(NetworkType.PUBLIC_TEST);
                     done();
                 });
         });

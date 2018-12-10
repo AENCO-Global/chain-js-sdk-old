@@ -18,14 +18,14 @@ import {expect} from 'chai';
 import {NetworkType} from '../../../src/model/blockchain/NetworkType';
 
 describe('NetworkType', () => {
-    it('PUBLIC_NET is 0x68', () => {
-        expect(NetworkType.PUBLIC_NET).to.be.equal(0x68);
-        expect(NetworkType.PUBLIC_NET).to.be.equal(104);
+    it('PUBLIC is 0x68', () => {
+        expect(NetworkType.PUBLIC).to.be.equal(0x68);
+        expect(NetworkType.PUBLIC).to.be.equal(104);
     });
 
-    it('PUBLIC_TEST_NET is 0x96', () => {
-        expect(NetworkType.PUBLIC_TEST_NET).to.be.equal(0x98);
-        expect(NetworkType.PUBLIC_TEST_NET).to.be.equal(152);
+    it('PUBLIC_TEST is 0x96', () => {
+        expect(NetworkType.PUBLIC_TEST).to.be.equal(0x98);
+        expect(NetworkType.PUBLIC_TEST).to.be.equal(152);
     });
 
     it('MIJIN is 0x60', () => {

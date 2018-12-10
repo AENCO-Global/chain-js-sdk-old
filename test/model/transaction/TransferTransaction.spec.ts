@@ -37,7 +37,7 @@ describe('TransferTransaction', () => {
             Address.createFromRawAddress('SBILTA367K2LX2FEXG5TFWAS7GEFYAGY7QLFBYKC'),
             [],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(transferTransaction.message.payload).to.be.equal('test-message');
@@ -60,7 +60,7 @@ describe('TransferTransaction', () => {
                 XEM.createRelative(100),
             ],
             PlainMessage.create('test-message'),
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
         );
 
         expect(transferTransaction.message.payload).to.be.equal('test-message');

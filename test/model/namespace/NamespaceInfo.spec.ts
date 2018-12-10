@@ -153,7 +153,7 @@ describe('NamespaceInfo', () => {
             dto.namespace.depth,
             [dto.namespace.level0],
             dto.namespace.parentId,
-            PublicAccount.createFromPublicKey(dto.namespace.owner, NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey(dto.namespace.owner, NetworkType.PUBLIC_TEST),
             dto.namespace.startHeight,
             dto.namespace.endHeight,
         );
@@ -168,7 +168,7 @@ describe('NamespaceInfo', () => {
             dto.namespace.depth,
             [dto.namespace.level0, dto.namespace.level1],
             dto.namespace.parentId,
-            PublicAccount.createFromPublicKey(dto.namespace.owner, NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey(dto.namespace.owner, NetworkType.PUBLIC_TEST),
             dto.namespace.startHeight,
             dto.namespace.endHeight,
         );

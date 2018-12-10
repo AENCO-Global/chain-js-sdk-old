@@ -51,10 +51,10 @@ export class Address {
         }
         // Public test
         if (addressTrimAndUpperCase.charAt(0) === 'T') {
-            networkType = NetworkType.PUBLIC_TEST_NET;
+            networkType = NetworkType.PUBLIC_TEST;
         // Public
         } else if (addressTrimAndUpperCase.charAt(0) === 'N') {
-            networkType = NetworkType.PUBLIC_NET;
+            networkType = NetworkType.PUBLIC;
         } else {
             throw new Error('Address Network unsupported');
         }

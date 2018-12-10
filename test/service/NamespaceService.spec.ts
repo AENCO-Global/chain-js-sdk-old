@@ -78,7 +78,7 @@ describe('NamespaceService', () => {
                 3829351378,
             ])],
             new NamespaceId([0, 0]),
-            PublicAccount.createFromPublicKey('1026D70E1954775749C6811084D6450A3184D977383F0E4282CD47118AF37755', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('1026D70E1954775749C6811084D6450A3184D977383F0E4282CD47118AF37755', NetworkType.PUBLIC_TEST),
             new UInt64([795, 0]),
             new UInt64([50795, 0]));
     }
@@ -91,7 +91,7 @@ describe('NamespaceService', () => {
             2,
             [new NamespaceId([3316183705, 3829351378]), new NamespaceId([1781696705, 4157485863])],
             new NamespaceId([3316183705, 3829351378]),
-            PublicAccount.createFromPublicKey('1026D70E1954775749C6811084D6450A3184D977383F0E4282CD47118AF37755', NetworkType.PUBLIC_TEST_NET),
+            PublicAccount.createFromPublicKey('1026D70E1954775749C6811084D6450A3184D977383F0E4282CD47118AF37755', NetworkType.PUBLIC_TEST),
             new UInt64([795, 0]),
             new UInt64([50795, 0]));
     }

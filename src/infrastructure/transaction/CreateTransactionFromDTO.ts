@@ -234,10 +234,10 @@ const CreateStandaloneTransactionFromDTO = (transactionDTO, transactionInfo): Tr
 
 const extractNetworkType = (version: number): NetworkType => {
     const networkType = parseInt(version.toString(16).substr(0, 2), 16);
-    if (networkType === NetworkType.PUBLIC_NET) {
-        return NetworkType.PUBLIC_NET;
-    } else if (networkType === NetworkType.PUBLIC_TEST_NET) {
-        return NetworkType.PUBLIC_TEST_NET;
+    if (networkType === NetworkType.PUBLIC) {
+        return NetworkType.PUBLIC;
+    } else if (networkType === NetworkType.PUBLIC_TEST) {
+        return NetworkType.PUBLIC_TEST;
     }
     throw new Error('Unimplemented network type');
 };

@@ -28,7 +28,7 @@ describe('LockFundsTransaction', () => {
         const aggregateTransaction = AggregateTransaction.createBonded(
             Deadline.create(),
             [],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
         const signedTransaction = account.sign(aggregateTransaction);
@@ -36,7 +36,7 @@ describe('LockFundsTransaction', () => {
             XEM.createRelative(10),
             UInt64.fromUint(10),
             signedTransaction,
-            NetworkType.PUBLIC_TEST_NET);
+            NetworkType.PUBLIC_TEST);
         expect(transaction.mosaic.id).to.be.equal(XEM.MOSAIC_ID);
         expect(transaction.mosaic.amount.compact()).to.be.equal(10000000);
         expect(transaction.hash).to.be.equal(signedTransaction.hash);
@@ -46,7 +46,7 @@ describe('LockFundsTransaction', () => {
         const aggregateTransaction = AggregateTransaction.createComplete(
             Deadline.create(),
             [],
-            NetworkType.PUBLIC_TEST_NET,
+            NetworkType.PUBLIC_TEST,
             [],
         );
         const signedTransaction = account.sign(aggregateTransaction);
@@ -55,7 +55,7 @@ describe('LockFundsTransaction', () => {
                 XEM.createRelative(10),
                 UInt64.fromUint(10),
                 signedTransaction,
-                NetworkType.PUBLIC_TEST_NET);
+                NetworkType.PUBLIC_TEST);
         }).to.throw(Error);
     });
 });
